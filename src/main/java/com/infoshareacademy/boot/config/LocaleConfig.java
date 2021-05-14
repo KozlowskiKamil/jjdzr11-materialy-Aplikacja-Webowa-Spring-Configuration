@@ -1,5 +1,6 @@
 package com.infoshareacademy.boot.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.LocaleResolver;
@@ -13,10 +14,13 @@ import java.util.Locale;
 @Configuration
 public class LocaleConfig implements WebMvcConfigurer {
 
+    @Value("${language}")
+    private String language;
+
     @Bean
     public LocaleResolver localeResolver() {
         SessionLocaleResolver sessionLocaleResolver = new SessionLocaleResolver();
-        sessionLocaleResolver.setDefaultLocale(new Locale("en"));
+        sessionLocaleResolver.setDefaultLocale(new Locale(language));
         return sessionLocaleResolver;
     }
 

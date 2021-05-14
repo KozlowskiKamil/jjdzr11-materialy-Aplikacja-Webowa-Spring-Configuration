@@ -5,6 +5,8 @@ management:
         include:
           - info
 
+language: fr
+
 spring:
   h2:
     console:
