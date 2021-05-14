@@ -19,3 +19,12 @@ spring:
     driverClassName: org.h2.Driver
     jpa:
       database-platform: org.hibernate.dialect.H2Dialect
+
+app:
+  name: Spring Boot App
+  author: Wojtek
+  instances: 1
+  thread:
+    batch: 50
+    threads: 4
+    name: importantThread
