@@ -1,24 +1,8 @@
-management:
-  endpoints:
-    web:
-      exposure:
-        include:
-          - info
-          - health
-          - flags
-          - settings
-
 spring:
-  h2:
-    console:
-      enabled: true
-  datasource:
-    url: jdbc:h2:mem:testdb
-    username: isa
-    password: secret2
-    driverClassName: org.h2.Driver
-    jpa:
-      database-platform: org.hibernate.dialect.H2Dialect
+  profiles:
+    active: dev
+
+language: en
 
 app:
   name: Spring Boot App
@@ -28,21 +12,3 @@ app:
     batch: 50
     threads: 4
     name: importantThread
-
-data:
-  products:
-    -
-      id: 1
-      name: phone
-      price: 22.22
-    -
-      id: 2
-      name: tv
-      price: 33.22
-  books:
-    - id: 1
-      title: good book
-      pages: 300
-    - id: 2
-      title: a story
-      pages: 1300

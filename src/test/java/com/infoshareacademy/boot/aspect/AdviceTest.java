@@ -12,12 +12,14 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
+import org.springframework.test.context.ActiveProfiles;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT, classes = BootApplication.class)
 @AutoConfigureMockMvc
 @EnableAutoConfiguration
+@ActiveProfiles(profiles = "test")
 // This is not a real test class. It will help to rerun some method to show AOP behaviour
 public class AdviceTest {
 
