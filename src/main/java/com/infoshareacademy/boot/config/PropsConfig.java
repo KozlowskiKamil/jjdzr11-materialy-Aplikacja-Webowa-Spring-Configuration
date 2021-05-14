@@ -5,8 +5,8 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @EnableConfigurationProperties({
-        AppProps.class
-        // TODO
+        AppProps.class,
+        ThreadProps.class
 })
 public class PropsConfig {
 }
