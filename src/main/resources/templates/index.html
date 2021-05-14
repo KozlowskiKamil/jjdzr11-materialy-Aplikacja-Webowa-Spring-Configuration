@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title th:text="#{index.tab}">ISA Thymeleaf</title>
+</head>
+<body>
+<header>
+    <div>
+        <div th:text="#{index.title}">It's Nice To Meet You</div>
+        <div th:text="#{index.subtitle}">Welcome To Our Studio!</div>
+    </div>
+</header>
+<span th:text="#{lang.change}"></span>:
+<select id="locales">
+    <option value=""></option>
+    <option value="en" th:text="#{lang.en}"></option>
+    <option value="pl" th:text="#{lang.pl}"></option>
+    <option value="fr" th:text="#{lang.fr}"></option>
+</select>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $("#locales").change(function () {
+        let lang = $('#locales').val();
+        if (lang != '') {
+            window.location.replace('welcome?lang=' + lang);
+        } else {
+            window.location.replace('welcome');
+        }
+    });
+});
+
+$(document).ready(function() {
+    let params = new URLSearchParams(window.location.search);
+    let lang = params.get('lang');
+    $('#locales').val(lang);
+});
+</script>
+</html>
